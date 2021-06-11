@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: %i[new create]
   def index
-    @post = Post.all
+    @posts = Post.all
   end
 
   def show
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
 
     if @post.save
-      redirect_to new_post_path
+      redirect_to root_path
     else
       render :new
     end
