@@ -2,11 +2,18 @@
 
 <ul>
   <% @posts.each do |post| %>
+    <% author = User.find(post.user_id) %>
+    <% author_name = author.name %>
     <li>
       <span><h3>Title: </span><%= post.title%></h3>
     </li>
     <li>
       <span>Body: </span><%= post.body%>
     </li>
+    <% if user_signed_in? %>
+      <li>
+        <span>Author: </span><%= author_name%>
+    </li>
+    <% end %>
   <% end %>
 </ul>
