@@ -1,18 +1,20 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
   def index
-    @post = post.all
+    @post = Post.all
   end
 
   def show
-    @post = post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def new
-    @post = post.new
+    @post = Post.new
   end
 
   def create
-    @post = post.new(post_params)
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
 
     if @post.save
       redirect_to new_post_path
