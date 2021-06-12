@@ -1,0 +1,19 @@
+<h1>List of Posts</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <span><h3>Title: </span><%= post.title%></h3>
+    </li>
+    <li>
+      <span>Body: </span><%= post.body%>
+    </li>
+    <% if user_signed_in? %>
+      <li>
+        <span>Author: </span><%= post.user.name%>
+    </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "Create New Post", new_post_path %> <br>
