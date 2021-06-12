@@ -16,7 +16,7 @@ A rails project built with devise focusing on authentication and sessions. membe
 - Follow these instructions to get a local copy up and running
 ```
 git clone https://github.com/KabohaJeanMark/members-only/
-cd re-former
+cd members-only
 ```
 
 - Install all the necessary gems
